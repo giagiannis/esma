@@ -14,7 +14,6 @@ public class Exp extends AbstractSMA {
 
 	public Exp(PersonList men, PersonList women) {
 		super(men, women);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

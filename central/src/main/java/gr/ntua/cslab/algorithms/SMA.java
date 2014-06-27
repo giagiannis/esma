@@ -5,7 +5,7 @@ import gr.ntua.cslab.containers.PersonList;
 public class SMA extends AbstractSMA {
 
 	public SMA() {
-		// TODO Auto-generated constructor stub
+            
 	}
 
 	public SMA(PersonList men, PersonList women) {

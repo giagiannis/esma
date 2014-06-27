@@ -7,7 +7,7 @@ public class AAAESMA extends AbstractSMA{
 	private boolean estimatedLastTime=false, lastCall;
 	
 	public AAAESMA() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class Swing extends AbstractSMA {
 	private int[] kMen=null, kWomen=null;
 	
 	public Swing() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Swing(PersonList men, PersonList women) {
