@@ -1,15 +1,13 @@
 package gr.ntua.cslab.algorithms;
 
-import gr.ntua.cslab.containers.PersonList;
+import gr.ntua.cslab.metrics.SexEqualnessCost;
 
-public class ESMA extends AbstractSMA {
+public class AAAESMA extends AbstractSMA{
 
-	public ESMA() {
+	private boolean estimatedLastTime=false, lastCall;
+	
+	public AAAESMA() {
 
-	}
-
-	public ESMA(PersonList men, PersonList women) {
-		super(men, women);
 	}
 
 	@Override
@@ -19,11 +17,19 @@ public class ESMA extends AbstractSMA {
 
 	@Override
 	protected boolean menPropose() {
-//		System.out.println((this.stepCounter%2==0 && this.men.hasUnhappyPeople()) || !this.women.hasUnhappyPeople());
-		return (this.stepCounter%2==0);
+		if(!estimatedLastTime){
+			SexEqualnessCost c = new SexEqualnessCost(men, women);
+			lastCall=(this.men.hasUnhappyPeople() && (c.get()>0 || !this.women.hasUnhappyPeople()));
+			estimatedLastTime=true;
+		} else {
+			estimatedLastTime=false;
+			lastCall=!lastCall;
+		}
+		return lastCall;
+	}
+	
+	public static void main(String[] args) {
+		AbstractSMA.runAlgorithm(AAAESMA.class,args);
 	}
 
-	public static void main(String[] args) {
-		AbstractSMA.runAlgorithm(ESMA.class, args);
-	}
 }
