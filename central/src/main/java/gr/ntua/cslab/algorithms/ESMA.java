@@ -1,12 +1,13 @@
 package gr.ntua.cslab.algorithms;
 
+import gr.ntua.cslab.algorithms.deprecated.AbstractSMA;
 import gr.ntua.cslab.metrics.SexEqualnessCost;
 
-public class AAAESMA extends AbstractSMA{
+public class ESMA extends AbstractSMA{
 
 	private boolean estimatedLastTime=false, lastCall;
 	
-	public AAAESMA() {
+	public ESMA() {
 
 	}
 
@@ -29,7 +30,7 @@ public class AAAESMA extends AbstractSMA{
 	}
 	
 	public static void main(String[] args) {
-		AbstractSMA.runAlgorithm(AAAESMA.class,args);
+		AbstractSMA.runAlgorithm(ESMA.class,args);
 	}
 
 }
