@@ -1,6 +1,5 @@
 package gr.ntua.cslab.algorithms;
 
-import gr.ntua.cslab.algorithms.deprecated.AbstractSMA;
 import gr.ntua.cslab.containers.PersonList;
 
 public class SMA extends AbstractSMA {

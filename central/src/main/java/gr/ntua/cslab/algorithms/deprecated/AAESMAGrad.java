@@ -1,5 +1,6 @@
 package gr.ntua.cslab.algorithms.deprecated;
 
+import gr.ntua.cslab.algorithms.AbstractSMA;
 import gr.ntua.cslab.containers.PersonList;
 import gr.ntua.cslab.metrics.SexEqualnessCost;
 

@@ -1,4 +1,4 @@
-package gr.ntua.cslab.algorithms.deprecated;
+package gr.ntua.cslab.algorithms;
 
 import java.util.Iterator;
 import java.util.Random;

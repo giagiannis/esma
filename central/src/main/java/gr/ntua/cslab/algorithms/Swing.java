@@ -1,6 +1,5 @@
 package gr.ntua.cslab.algorithms;
 
-import gr.ntua.cslab.algorithms.deprecated.AbstractSMA;
 import java.util.Iterator;
 
 import gr.ntua.cslab.containers.Person;

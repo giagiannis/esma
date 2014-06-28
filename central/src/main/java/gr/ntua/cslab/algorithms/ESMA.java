@@ -1,6 +1,5 @@
 package gr.ntua.cslab.algorithms;
 
-import gr.ntua.cslab.algorithms.deprecated.AbstractSMA;
 import gr.ntua.cslab.metrics.SexEqualnessCost;
 
 public class ESMA extends AbstractSMA{
