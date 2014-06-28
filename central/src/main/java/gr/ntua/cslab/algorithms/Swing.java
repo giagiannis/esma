@@ -125,7 +125,7 @@ public class Swing extends AbstractSMA {
 			 //				System.out.print(this.diagnostics.resultsIsStable()+"\n");
 		 }
                  
-                 if(this.stepCounter > 50*this.men.size()*this.women.size()){
+                 if(this.stepCounter > 2*this.men.size()*this.women.size()){
                      System.out.println("Possible endless loop");
                      System.exit(1);
                  }
