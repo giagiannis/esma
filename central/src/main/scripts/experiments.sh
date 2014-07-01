@@ -10,6 +10,7 @@ OUTPUT_DIR="results"
 
 DATA_TYPE=$(basename $DATA_DIR | tr '_' '\t' | awk '{print $2}')
 DATA_SIZE=$(basename $DATA_DIR | tr '_' '\t' | awk '{print $3}')
+DATA_SIZE=$(printf "%05d" $DATA_SIZE)
 ESMA_LOOPS=5
 
 

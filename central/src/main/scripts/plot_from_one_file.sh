@@ -6,8 +6,8 @@
 [ -z "$OFFSET" ] && OFFSET=3 && echo "Using default OFFSET 3"
 
 gnuplot  -p << EOF
-set term post eps size 16.0,14.0 enhanced color font "Courier,30" linewidth 5
-set output "temp.eps"
+set term post eps size 16,9 enhanced color font "Courier,30" linewidth 5
+set output "results_$OFFSET.eps"
 OFFSET=$OFFSET
 set xlabel "Number of men/women"
 if (OFFSET == 2) {set title "Number of steps vs Size"; set ylabel "Steps"}
