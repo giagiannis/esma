@@ -26,6 +26,7 @@ def handle_file(file_name):
         index = 0
         for value in line.split("\t"):
             try:
+                float(value.strip())
                 if index>0:
                     sum_array[index] += float(value.strip())/lines
                 index+=1
@@ -35,9 +36,15 @@ def handle_file(file_name):
 
 def print_results(identifier, averages):
     sys.stdout.write("%s\t"%str(identifier))
+    index=0
     for i in averages:
-        if i>0:
-            sys.stdout.write("%.2f\t"%i)
+        if index<19 and index!=0:
+            if index%6==2:
+                sys.stdout.write("%.2f\t"%(i/1000.0))
+            else:
+                sys.stdout.write("%.2f\t"%i)
+
+        index+=1
     sys.stdout.write("\n")
 
 
