@@ -34,7 +34,10 @@ public final class ESMATerm extends AbstractSMA {
 
     @Override
     public boolean terminationCondition() {
-        return this.men.hasUnhappyPeople() && this.women.hasUnhappyPeople();
+        if(this.stepCounter > this.alternatingThreshold)
+            return this.men.hasUnhappyPeople() && this.women.hasUnhappyPeople();
+        else
+            return this.men.hasUnhappyPeople() || this.women.hasUnhappyPeople();
     }
 
     @Override
