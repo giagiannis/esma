@@ -41,6 +41,7 @@ public class Diagnostics {
 				Person woman = womenIterator.next();
 				if(	man.getPreferences().getRank(woman.getId())<man.getCurrentPartnerRank() &&
 					woman.getPreferences().getRank(man.getId())<woman.getCurrentPartnerRank()){
+                                    System.out.format("Man %s prefers woman %s and vice versa", man, woman);
 					return false;
 				}
 			}

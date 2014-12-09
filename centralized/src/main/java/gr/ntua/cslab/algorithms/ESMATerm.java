@@ -1,15 +1,18 @@
 package gr.ntua.cslab.algorithms;
 
+import gr.ntua.cslab.containers.Person;
 import gr.ntua.cslab.metrics.SexEqualnessCost;
+import java.util.Iterator;
 
-public class ESMATerm extends AbstractSMA {
+public final class ESMATerm extends AbstractSMA {
 
     private boolean estimatedLastTime = false, lastCall;
 
     private int alternatingThreshold;
 
     public ESMATerm() {
-        this.setAlternatingThreshold(0);
+        this.setAlternatingThreshold(5000);
+        this.randomPickSteps = Integer.MAX_VALUE;
 
     }
 
@@ -31,13 +34,23 @@ public class ESMATerm extends AbstractSMA {
 
     @Override
     public boolean terminationCondition() {
-        return this.men.hasUnhappyPeople() || this.women.hasUnhappyPeople();
+        return this.men.hasUnhappyPeople() && this.women.hasUnhappyPeople();
     }
 
     @Override
     protected boolean menPropose() {
-        if(this.stepCounter > this.alternatingThreshold)
+        if(this.stepCounter == this.alternatingThreshold) {
+            Iterator<Person> menIt = this.men.getIterator();
+            while(menIt.hasNext()){
+                Person p = menIt.next();
+                for(int i=1;i<=this.men.size();i++)
+                    p.getPreferences().addNext(i);
+            }
+        }
+        if(this.stepCounter >= this.alternatingThreshold) {
+            
             return true;
+        }
         if (!estimatedLastTime) {
             SexEqualnessCost c = new SexEqualnessCost(men, women);
             lastCall = (this.men.hasUnhappyPeople() && (c.get() > 0 || !this.women.hasUnhappyPeople()));

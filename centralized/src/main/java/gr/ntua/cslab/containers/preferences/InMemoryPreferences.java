@@ -16,7 +16,7 @@ public class InMemoryPreferences implements Preferences {
 	 * Empty constructor (does nothing).
 	 */
 	public InMemoryPreferences() {
-		
+            
 	}
 	
 	/**

@@ -86,10 +86,10 @@ public abstract class AbstractSMA {
 //			this.cycleDetected = (this.men.countPeopleWithCycles()>0) || (this.women.countPeopleWithCycles()>0);
 //		if(this.)		
         boolean menDoPropose;
-        if (this.randomPickSteps == 0 || this.stepCounter % this.randomPickSteps == 0) {
+        if (this.stepCounter != 0 && (this.randomPickSteps == 0 || this.stepCounter % this.randomPickSteps == 0)) {
             menDoPropose = this.rand.nextBoolean();
             this.randomPickSteps = this.randomPickSteps * 2 / 3;
-
+            System.err.println("Random choice done");
         } else {
             menDoPropose = this.menPropose();
         }
@@ -125,7 +125,7 @@ public abstract class AbstractSMA {
         }
     }
 
-	// STATIC METHODS USED BY main METHOD OF SUBCLASSES
+    // STATIC METHODS USED BY main METHOD OF SUBCLASSES
     protected static void runAlgorithm(Class<? extends AbstractSMA> algorithmClass, String[] args) {
         try {
             if (args.length < 2) {
