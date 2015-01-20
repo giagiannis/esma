@@ -28,37 +28,28 @@ esac
 gnuplot -p << EOF
 
 set ylabel '$TITLE' 
-set xlabel 'Polarity'
-
-set xtics ("80%%" 0,"60%%" 1,"40%%" 2 ,"20%%" 3)
-if($COLUMN==3) set logscale y
+set xlabel 'Dataset size'
 
 set term postscript eps size 6.4,4.0 enhanced color font "Arial,32" linewidth 5
 set pointsize 2.5;
-set key right top;
-set style data histogram
-set style histogram cluster gap 1
-set style fill solid
-
-if($COLUMN==5) set key left top
-
+set key left top;
 
 set output '$OUTPUT_FILE'
 
-plot 	'$INPUT_FILE' using $COLUMN title 'SMA' lc rgb '#000088' fs pattern 1, \
-	'$INPUT_FILE' using $[COLUMN+6] title 'Swing' lc rgb '#008800' fs pattern 2, \
-	'$INPUT_FILE' using $[COLUMN+12] title 'ESMA' lc rgb '#880000' fs pattern 3
+plot 	'$INPUT_FILE' using 1:$COLUMN with lp title 'SMA'  lc rgb '#000088' pt 1, \
+	'$INPUT_FILE' using 1:$[COLUMN+6] with lp title 'Swing' lc rgb '#008800' pt 4, \
+	'$INPUT_FILE' using 1:$[COLUMN+12] with lp title 'ESMA' lc rgb '#880000' pt 7 
 EOF
 epstopdf $OUTPUT_FILE
 rm -f $OUTPUT_FILE
 
 }
 
-[ $# -lt 1 ] && echo "I need an input files as parameter" && exit 1
+[ $# -lt 1 ] && echo "I need an input file as a parameter" && exit 1
 INPUT_FILE=$1
 
 for i in 2 3 4 5 6 7; do 
-plot_one_column $i $1 $INPUT_FILE_2
+plot_one_column $i $1
 done
 
 TEMP=$(basename $INPUT_FILE)

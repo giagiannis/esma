@@ -54,11 +54,11 @@ rm -f $OUTPUT_FILE
 
 }
 
-[ $# -lt 1 ] && echo "I need an input files as parameter" && exit 1
+[ $# -lt 1 ] && echo "I need an input file as a parameter" && exit 1
 INPUT_FILE=$1
 
 for i in 2 3 4 5 6 7; do 
-plot_one_column $i $1 $INPUT_FILE_2
+plot_one_column $i $1
 done
 
 TEMP=$(basename $INPUT_FILE)
