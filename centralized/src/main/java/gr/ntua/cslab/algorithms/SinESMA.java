@@ -22,8 +22,8 @@ public class SinESMA extends AbstractSMA {
 
     @Override
     protected boolean menPropose() {
-        boolean menproposeflag = Math.sin(Math.pow(this.stepCounter, 3.0))>0;
-        return (Math.sin(Math.pow(this.stepCounter, 3.0))>0);
+        boolean menProposeFlag = Math.sin(this.stepCounter*this.stepCounter*this.stepCounter)>0;
+        return menProposeFlag;
     }
     
     public static void main(String[] args) {
