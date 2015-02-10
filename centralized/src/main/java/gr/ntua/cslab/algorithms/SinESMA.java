@@ -22,7 +22,8 @@ public class SinESMA extends AbstractSMA {
 
     @Override
     protected boolean menPropose() {
-        boolean menProposeFlag = Math.sin(this.stepCounter*this.stepCounter*this.stepCounter)>0;
+        // estimates sin(k^log(k))
+        boolean menProposeFlag = Math.sin(this.stepCounter*this.stepCounter)>0;
         return menProposeFlag;
     }
     

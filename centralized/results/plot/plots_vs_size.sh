@@ -30,11 +30,12 @@ gnuplot -p << EOF
 
 set ylabel '$TITLE' 
 set xlabel 'Dataset size'
+set xtics 500,500,2000
 
 set term postscript eps size 6.4,4.0 enhanced color font "Arial,32" linewidth 5
 set pointsize 2.5;
 set key left top;
-if($COLUMN==3) set logscale y
+set logscale y;
 
 set output '$OUTPUT_FILE'
 

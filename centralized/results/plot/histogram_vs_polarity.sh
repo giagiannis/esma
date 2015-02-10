@@ -31,7 +31,7 @@ set ylabel '$TITLE'
 set xlabel 'Polarity'
 
 set xtics ("80%%" 0,"60%%" 1,"40%%" 2 ,"20%%" 3)
-if($COLUMN==3) set logscale y
+set logscale y
 
 set term postscript eps size 6.4,4.0 enhanced color font "Arial,32" linewidth 5
 set pointsize 2.5;

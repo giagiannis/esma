@@ -10,7 +10,8 @@ public class Swing extends AbstractSMA {
     private int[] kMen = null, kWomen = null;
 
     public Swing() {
-
+        super();
+        this.randomPickSteps = Integer.MAX_VALUE;
     }
 
     public Swing(PersonList men, PersonList women) {
