@@ -31,6 +31,9 @@ gnuplot -p << EOF
 set ylabel '$TITLE' 
 set xlabel 'Dataset size'
 set xtics 500,500,2000
+set yrange [0.1:200]
+if ($COLUMN==5) set yrange [5:200]
+if ($COLUMN==6) set yrange [0.5:300]
 
 set term postscript eps size 6.4,4.0 enhanced color font "Arial,32" linewidth 5
 set pointsize 2.5;
